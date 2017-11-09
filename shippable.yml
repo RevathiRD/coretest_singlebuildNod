@@ -124,11 +124,11 @@ integrations:
       region: us-east-1
       
   #Quay.io integration    
-    - integrationName: ship-quay
-      type: quayLogin
-      branches: #Testing the wildcards for branches include
-        only:
-          - m*
+   # - integrationName: ship-quay
+   #   type: quayLogin
+    #  branches: #Testing the wildcards for branches include
+     #   only:
+       #   - m*
           
     - integrationName: ship-docker
       type: "private docker registry" 
