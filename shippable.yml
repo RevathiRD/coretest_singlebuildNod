@@ -119,16 +119,16 @@ integrations:
       branches: #Testing the wildcards for branches exclude
         except:
           - n*
-    - integrationName: ship-ecreast1
-      type: ecr
-      region: us-east-1
+    #- integrationName: ship-ecreast1
+     # type: ecr
+     # region: us-east-1
       
   #Quay.io integration    
-   # - integrationName: ship-quay
-   #   type: quayLogin
-    #  branches: #Testing the wildcards for branches include
-     #   only:
-       #   - m*
+    - integrationName: ship-quay
+      type: quayLogin
+      branches: #Testing the wildcards for branches include
+        only:
+          - m*
           
     #- integrationName: ship-docker
      # type: "private docker registry" 
