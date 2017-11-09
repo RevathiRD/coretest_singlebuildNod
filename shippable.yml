@@ -130,8 +130,8 @@ integrations:
         only:
           - m*
           
-    #- integrationName: ship-docker
-     # type: "private docker registry" 
+    - integrationName: ship-docker
+      type: "private docker registry" 
       
   #generic:
    # - integrationName: "ship-keyvalue"
