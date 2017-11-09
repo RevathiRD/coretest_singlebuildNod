@@ -97,9 +97,9 @@ build:
     #- docker build -t $REGISTRY_URL/$PROJECT_NAME/$IMAGE_REPO:master.1116 .
     #- docker push $REGISTRY_URL/$PROJECT_NAME/$IMAGE_REPO:master.1116
     
-  on_success:
+#  on_success:
   # Testing to push to s3 bucket
-    - aws s3 sync $SHIPPABLE_BUILD_DIR $AWS_S3_BUCKET --region $AWS_S3_REGION
+  #  - aws s3 sync $SHIPPABLE_BUILD_DIR $AWS_S3_BUCKET --region $AWS_S3_REGION
     
 integrations:
   hub:
