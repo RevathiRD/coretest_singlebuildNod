@@ -94,8 +94,8 @@ build:
     #- docker build -t=742038439709.dkr.ecr.us-east-1.amazonaws.com/sample_php:latest2 .
    # - docker push 742038439709.dkr.ecr.us-east-1.amazonaws.com/sample_php:latest2
    # Testing pdr build and push
-    #- docker build -t $REGISTRY_URL/$PROJECT_NAME/$IMAGE_REPO:master.1116 .
-    #- docker push $REGISTRY_URL/$PROJECT_NAME/$IMAGE_REPO:master.1116
+    - docker build -t $REGISTRY_URL/$PROJECT_NAME/$IMAGE_REPO:master.1116 .
+    - docker push $REGISTRY_URL/$PROJECT_NAME/$IMAGE_REPO:master.1116
     
 #  on_success:
   # Testing to push to s3 bucket
