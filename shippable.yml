@@ -166,6 +166,7 @@ jobs:
       - IN: gitRepo-resource
         showBuildStatus: true
       - IN: ship-cli-gcr
+      - IN: ship-cli-ecr
       #- IN: test-jfrogfile
     #  - IN: test-trigger01
       - TASK:
