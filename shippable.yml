@@ -155,11 +155,7 @@ resources:
     type: cliConfig
     integration: "ship-gcr"
     
-  - name: ship-cli-ecr
-    type: cliConfig
-    integration: "ship-ecr"
-    pointer:
-      region: us-west-1
+ 
 jobs:
   - name: sample-runsh-gcr
     type: runSh
