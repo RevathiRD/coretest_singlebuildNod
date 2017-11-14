@@ -137,8 +137,37 @@ integrations:
   generic:
     - integrationName: "ship-keyvalue"
 
-
-
-
+resources:
+  - name: gitRepo-resource
+    type: gitRepo
+    integration: github
+    pointer:
+      sourceName: RevathiRD/sample-script-3
+      branch: master
+  - name: img-resource
+    type: image
+    integration: ship-docker
+    pointer:
+      sourceName: "shippabledocker/pipelinev2"
+    seed:
+      versionName: "deploy.2"
+  - name: ship-cli-gcr
+    type: cliConfig
+    integration: "ship-gcr"
+jobs:
+  - name: sample-runsh-gcr
+    type: runSh
+    allowPublicAccess: true
+    steps:
+      - IN: gitRepo-resource
+        showBuildStatus: true
+      - IN: ship-cli-gcr
+      #- IN: test-jfrogfile
+    #  - IN: test-trigger01
+      - TASK:
+        - script: 'cd /build/IN/gitRepo-resource/gitRepo'
+        - script: 'docker pull  gcr.io/vidya-project/node1-img:master.33'
+        #- script: 'docker build -t=quay.io/revathird/samplenode_test:dri  .'
+       # - script: 'docker push quay.io/revathird/samplenode_test:dri'
 
 
