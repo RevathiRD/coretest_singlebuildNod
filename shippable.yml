@@ -166,10 +166,7 @@ jobs:
       - IN: ship-cli-gcr
       - TASK:
         - script: 'cd /build/IN/gitRepo-resource/gitRepo'
-        - script: 'docker pull gcr.io/vidya-project/node1-img:master.33'
+        - script: 'docker pull  gcr.io/vidya-project/node1-img:master.33'
        
         
-        #- script: 'docker build -t=quay.io/revathird/samplenode_test:dri  .'
-       # - script: 'docker push quay.io/revathird/samplenode_test:dri'
-
-
+      
