@@ -164,6 +164,8 @@ jobs:
       - IN: gitRepo-resource
         showBuildStatus: true
       - IN: ship-cli-gcr
+        scopes:
+          - gcr
       - TASK:
         - script: 'cd /build/IN/gitRepo-resource/gitRepo'
         - script: 'docker pull gcr.io/vidya-project/node1-img:master.33'
