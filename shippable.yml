@@ -154,6 +154,10 @@ resources:
   - name: ship-cli-gcr
     type: cliConfig
     integration: "ship-gcr"
+    
+  - name: ship-cli-ecr
+    type: cliConfig
+    integration: "ship-ecr"
 jobs:
   - name: sample-runsh-gcr
     type: runSh
@@ -167,6 +171,8 @@ jobs:
       - TASK:
         - script: 'cd /build/IN/gitRepo-resource/gitRepo'
         - script: 'docker pull gcr.io/vidya-project/node1-img:master.33'
+        - script: 'docker pull 742038439709.dkr.ecr.us-west-2.amazonaws.com/sample_node'
+        
         #- script: 'docker build -t=quay.io/revathird/samplenode_test:dri  .'
        # - script: 'docker push quay.io/revathird/samplenode_test:dri'
 
