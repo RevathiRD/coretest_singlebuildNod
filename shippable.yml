@@ -30,7 +30,7 @@ env:
 #Testing for include and exclude branches
 branches:
   only:
-    - master
+    - test-node
   except:
     - nonmaster
 #Uncomment below section to disable the private submodules
@@ -89,31 +89,12 @@ integrations:
       type: docker 
       branches: #Testing the wildcards for branches include
         only:
-          - master
+          - test-node
   #GCR integration
     - integrationName: ship-gcr
       type: gcr
-  #ECR integration
-    - integrationName: ship-ecr
-      type: ecr
-      region: us-west-2
-      branches: #Testing the wildcards for branches exclude
-        except:
-          - n*
-    - integrationName: ship-ecreast1
-      type: ecr
-      region: us-east-1
-      
-  #Quay.io integration    
-    - integrationName: ship-quay
-      type: quayLogin
-      branches: #Testing the wildcards for branches include
-        only:
-          - m*
-          
-    - integrationName: ship-docker
-      type: "private docker registry" 
-      
+ 
+
   generic:
     - integrationName: "ship-keyvalue"
 
