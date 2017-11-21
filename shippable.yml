@@ -177,6 +177,7 @@ jobs:
      - IN: gitRepo-resource
      - IN: trigger01
      - IN: img-resource
+     - IN: sample-runsh-testci
      
         
   - name: sample-runsh-testci
