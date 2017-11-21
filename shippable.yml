@@ -178,6 +178,13 @@ jobs:
      - IN: trigger01
      - IN: img-resource
      - IN: sample-runsh-testci
+  - name: coretest_singlebuildnod_runCI      # required
+    type: runCI             # required
+    steps:                  # required
+     - OUT: gitRepo-resource
+     - IN: trigger01
+     - OUT: img-resource
+     - OUT: sample-runsh-testci
      
         
   - name: sample-runsh-testci
