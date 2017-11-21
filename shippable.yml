@@ -60,7 +60,26 @@ resources:
          # nodePort: <integer> # Port exposed on the node.  Kubernetes will auto-allocate by default.
       selector:
         new: scriptnull-local # Required. Labels to match the pod
-        
+  - name: newkubebastionloadbalancer
+    type: loadBalancer
+    integration: ship-aws
+    pointer:
+      bastionHost:
+        address: 54.152.191.70
+        user: ubuntu #bastionHost user
+        keyIntegration: ship_aws
+      sourceName: "xyz-kube-local-gen-bash-gen-12-bash"
+      method: ClusterIP
+      clusterName: "testCL" # The namespace for the service
+      region: "us-east-1" #"europe-west1-b"
+      namespace: "temp-namespace-f"
+    version:
+      ports:
+        - name: kube-local-port  # Required for multiple ports, must be a DNS_LABEL
+          protocol: TCP  # Kubernetes default: TCP
+          port: 8001     # Required.
+          targetPort: 8002 # A number in 1-65535 or an "IANA_SVC_NAME"  This is the port to access the pod.
+         # nodePort: <integer> # Port exposed on the node.  Kubernetes will auto-allocate by default.`     
         
 
 jobs:
@@ -83,7 +102,18 @@ jobs:
        - NOTIFY: ship-slack        
      #always:                             # optional
       # - NOTIFY: ship-slack   
-    
+   - name: test-provision-kube
+     type: provision
+     on_start:                               # optional
+      - NOTIFY: ship-slack
+     steps:
+       - IN: newkubebastionloadbalancer
+     on_success:                         # optional
+       - NOTIFY: ship-slack         
+     on_failure:                         # optional
+       - NOTIFY: ship-slack         
+     on_cancel:                              # optional
+       - NOTIFY: ship-slack     
 
         
         
