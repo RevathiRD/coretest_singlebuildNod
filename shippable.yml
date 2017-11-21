@@ -171,7 +171,7 @@ jobs:
         - script: 'cd /build/IN/gitRepo-resource/gitRepo'
         - script: 'docker pull gcr.io/vidya-project/node1-img:master.33'
         
-  - name: CORETEST_SINGLEBUILDNOD_RUNCI      # required
+  - name: LANGTEST_U16JAVALL_RUNCI      # required
     type: runCI             # required
     steps:                  # required
      - IN: gitRepo-resource 
