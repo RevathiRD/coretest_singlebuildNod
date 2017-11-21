@@ -81,8 +81,8 @@ jobs:
        - NOTIFY: ship-slack         
      on_cancel:                              # optional
        - NOTIFY: ship-slack        
-     always:                             # optional
-       - NOTIFY: ship-slack   
+     #always:                             # optional
+      # - NOTIFY: ship-slack   
     
 
         
