@@ -71,8 +71,19 @@ jobs:
   
    - name: test-provision
      type: provision
+     on_start:                               # optional
+      - NOTIFY: ship-slack
      steps:
        - IN: sn-gke-service-lb 
+    on_success:                         # optional
+      - NOTIFY: ship-slack         
+    on_failure:                         # optional
+      - NOTIFY: ship-slack         
+    on_cancel:                              # optional
+      - NOTIFY: ship-slack        
+    always:                             # optional
+      - NOTIFY: ship-slack   
+    
 
         
         
