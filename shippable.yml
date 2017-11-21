@@ -79,10 +79,10 @@ resources:
         
 
 jobs:
-   #- name: sn-provision
-    # type: provision
-     #steps:
-     #  - IN: sn-img-1
+   - name: sn-provision
+     type: provision
+     steps:
+       - IN: sn-img-1
   
    - name: test-provision
      type: provision
