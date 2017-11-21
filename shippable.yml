@@ -53,7 +53,7 @@ resources:
       namespace: "default"    # optional
     version:
       ports:
-        - name: scriptnull-local-port  # Required for multiple ports, must be a DNS_LABEL
+        - name: scriptnull-local-port-test # Required for multiple ports, must be a DNS_LABEL
           protocol: TCP  # Kubernetes default: TCP
           port: 8001     # Required.
           targetPort: 8002 # A number in 1-65535 or an "IANA_SVC_NAME"  This is the port to access the pod.
