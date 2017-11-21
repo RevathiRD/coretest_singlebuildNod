@@ -77,7 +77,7 @@ resources:
           targetPort: 8002 # A number in 1-65535 or an "IANA_SVC_NAME"  This is the port to access the pod.
   - name: newkubebastioncluster
     type: cluster
-    integration: ship-newkubernetes #kubernetes account integartion name which have config file of master
+    integration: ship-kube #kubernetes account integartion name which have config file of master
     pointer:
       bastionHost:
         address: 52.34.32.118 #IP of 3rd instance (bastion) which is created in step 4
