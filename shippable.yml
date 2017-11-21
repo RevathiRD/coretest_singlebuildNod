@@ -96,30 +96,30 @@ jobs:
   
    - name: test-provision
      type: provision
-     on_start:                               # optional
+     on_start:                               
       - NOTIFY: ship-slack
      steps:
        - IN: sn-gke-service-lb 
-     on_success:                         # optional
+     on_success:                         
        - NOTIFY: ship-slack         
-     on_failure:                         # optional
+     on_failure:                         
        - NOTIFY: ship-slack         
-     on_cancel:                              # optional
+     on_cancel:                            
        - NOTIFY: ship-slack        
-     #always:                             # optional
+     #always:                             
       # - NOTIFY: ship-slack   
    - name: test-provision-kube
      type: provision
-     on_start:                               # optional
+     on_start:                               
       - NOTIFY: ship-slack
      steps:
        - IN: newkubebastionloadbalancer
        - IN: test-ssh
-     on_success:                         # optional
+     on_success:                        
        - NOTIFY: ship-slack         
-     on_failure:                         # optional
+     on_failure:                        
        - NOTIFY: ship-slack         
-     on_cancel:                              # optional
+     on_cancel:                              
        - NOTIFY: ship-slack     
 
         
