@@ -154,6 +154,19 @@ resources:
   - name: ship-cli-gcr
     type: cliConfig
     integration: "ship-gcr"
+  - name: img-resource-out
+    type: image
+    integration: ship-docker
+    pointer:
+      sourceName: "shippabledocker/pipelinev2"
+    seed:
+      versionName: "deploy.2"
+  - name: gitRepo-resource-out
+    type: gitRepo
+    integration: github
+    pointer:
+      sourceName: RevathiRD/sample-script-3
+      branch: master
   
     
  
@@ -181,9 +194,9 @@ jobs:
   - name: coretest_singlebuildNod_runCI      # required
     type: runCI             # required
     steps:                  # required
-     - OUT: gitRepo-resource
+     - OUT: gitRepo-resource-out
      - IN: trigger01
-     - OUT: img-resource
+     - OUT: img-resource-out
      - OUT: sample-runsh-testci
      
         
