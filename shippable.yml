@@ -62,7 +62,7 @@ resources:
         new: scriptnull-local # Required. Labels to match the pod
   - name: newkubebastionloadbalancer
     type: loadBalancer
-    integration: ship-aws
+    integration: ship-kube
     pointer:
       sourceName: "xyz-kube-local-gen-bash-gen-12-bash"
       method: ClusterIP
@@ -75,14 +75,24 @@ resources:
           protocol: TCP  # Kubernetes default: TCP
           port: 8001     # Required.
           targetPort: 8002 # A number in 1-65535 or an "IANA_SVC_NAME"  This is the port to access the pod.
-         # nodePort: <integer> # Port exposed on the node.  Kubernetes will auto-allocate by default.`     
-        
-
+  - name: newkubebastioncluster
+    type: cluster
+    integration: ship-newkubernetes #kubernetes account integartion name which have config file of master
+    pointer:
+      bastionHost:
+        address: 52.34.32.118 #IP of 3rd instance (bastion) which is created in step 4
+        user: ubuntu #bastionHost user this is deafult alwasy ubuntu
+        keyIntegration: test-ssh   #resource name of the SSH key integrations in order to do that in shippable    # nodePort: <integer> # Port exposed on the node.  Kubernetes will auto-allocate by default.`     
+  - name: test-ssh
+    type: integration
+    integration: test-ssh
 jobs:
    - name: sn-provision
      type: provision
      steps:
        - IN: sn-img-1
+       
+  
   
    - name: test-provision
      type: provision
@@ -104,6 +114,7 @@ jobs:
       - NOTIFY: ship-slack
      steps:
        - IN: newkubebastionloadbalancer
+       - IN: test-ssh
      on_success:                         # optional
        - NOTIFY: ship-slack         
      on_failure:                         # optional
