@@ -175,6 +175,18 @@ jobs:
     type: runCI             # required
     steps:                  # required
      - IN: gitRepo-resource
+    on_success:
+        - script: echo $JOB_NAME
+        - script: echo $JOB_TYPE
+        - script: echo $BUILD_ID
+        - script: echo $BUILD_NUMBER
+        - script: echo $BUILD_JOB_ID
+        - script: echo $BUILD_JOB_NUMBER
+        - script: echo $SUBSCRIPTION_ID
+        - script: echo $JOB_PATH
+        - script: echo $JOB_STATE
+        - script: echo $JOB_PREVIOUS_STATE   
+    
      
         
   - name: sample-runsh-testci
