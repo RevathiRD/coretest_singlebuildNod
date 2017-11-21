@@ -183,7 +183,7 @@ jobs:
     type: runSh
     allowPublicAccess: true
     steps:
-      - IN: langtest_u16javall_runCI 
+      - IN: gitRepo-resource
         showBuildStatus: true
 
       - TASK:
