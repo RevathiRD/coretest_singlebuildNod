@@ -175,7 +175,16 @@ jobs:
     type: runCI             # required
     steps:                  # required
      - IN: gitRepo-resource
-     - TASK:
+     
+        
+  - name: sample-runsh-testci
+    type: runSh
+    allowPublicAccess: true
+    steps:
+      - IN: langtest_u16javall_runCI 
+        showBuildStatus: true
+
+      - TASK:
         - script: echo $JOB_NAME
         - script: echo $JOB_TYPE
         - script: echo $BUILD_ID
@@ -185,7 +194,6 @@ jobs:
         - script: echo $SUBSCRIPTION_ID
         - script: echo $JOB_PATH
         - script: echo $JOB_STATE
-        - script: echo $JOB_PREVIOUS_STATE
-        
+        - script: echo $JOB_PREVIOUS_STATE   
         
  
