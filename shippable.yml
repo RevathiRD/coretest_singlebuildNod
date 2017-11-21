@@ -176,7 +176,7 @@ jobs:
     steps:                  # required
      - IN: gitRepo-resource
      - IN: trigger01
-    
+     - IN: img-resource
      
         
   - name: sample-runsh-testci
