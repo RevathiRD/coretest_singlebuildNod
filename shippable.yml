@@ -154,6 +154,7 @@ resources:
   - name: ship-cli-gcr
     type: cliConfig
     integration: "ship-gcr"
+  
     
  
 jobs:
@@ -170,6 +171,9 @@ jobs:
         - script: 'cd /build/IN/gitRepo-resource/gitRepo'
         - script: 'docker pull gcr.io/vidya-project/node1-img:master.33'
         
-       
+  - name: CORETEST_SINGLEBUILDNOD_RUNCI      # required
+    type: runCI             # required
+    steps:                  # required
+     - IN: gitRepo-resource 
         
       
