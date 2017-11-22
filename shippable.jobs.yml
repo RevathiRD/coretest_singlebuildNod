@@ -22,4 +22,4 @@ jobs:
      - IN: test-trigger
      - IN: cliconfig
      - IN: filejfrog
-     
+     - IN: state
