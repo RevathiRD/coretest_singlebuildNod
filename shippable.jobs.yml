@@ -1,0 +1,25 @@
+jobs:
+  - name: sample-runsh-ci
+    type: runSh
+    allowPublicAccess: true
+    steps:
+      - IN: gitRepo-resource-ci
+        showBuildStatus: true
+      - TASK:
+        - script: 'cd /build/IN/gitRepo-resource/gitRepo'
+        - script: 'docker pull gcr.io/vidya-project/node1-img:master.33'
+        
+  - name: langtest_u14javall_runCI      # required
+    type: runCI             # required
+    steps:                  # required
+     - IN: gitRepo-resource-ci
+     - IN: test_params
+     - IN: kube-dockeropts
+     - IN: test-image
+     - IN: allpl-scale2
+     - IN: notify-slack
+     - IN: emailtest
+     - IN: test-trigger
+     - IN: cliconfig
+     - IN: filejfrog
+     
