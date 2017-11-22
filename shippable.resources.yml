@@ -1,15 +1,21 @@
-resources:    
+resources:  
+  
  ## - name: testintegrationwebhook
  #   type: integration
  #   integration: testwebhook
  #   flags: webhhokresoo
-  
-  - name: pipeline-test_master
-    type: syncRepo
-    flags:
-      - testsyncrepo
-      - testingsecondflags
-      - testing third flag
+  - name: gitRepo-resource-ci
+    type: gitRepo
+    integration: github
+    pointer:
+      sourceName: RevathiRD/sample-script-3
+      branch: master
+ # - name: pipeline-test_master
+  #  type: syncRepo
+  #  flags:
+    #  - testsyncrepo
+    #  - testingsecondflags
+     #- testing third flag
       
   - name: script3
     type: gitRepo
