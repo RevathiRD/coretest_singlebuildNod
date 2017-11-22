@@ -1,0 +1,112 @@
+resources:    
+ ## - name: testintegrationwebhook
+ #   type: integration
+ #   integration: testwebhook
+ #   flags: webhhokresoo
+  
+  - name: pipeline-test_master
+    type: syncRepo
+    flags:
+      - testsyncrepo
+      - testingsecondflags
+      - testing third flag
+      
+  - name: script3
+    type: gitRepo
+    integration: github
+    pointer:
+      sourceName: RevathiRD/sample-script-3
+      branch: master
+      
+  - name: state
+    type: state
+    
+  - name: test-image
+    type: image
+    integration: ship-docker
+    pointer:
+      sourceName: "shippabledocker/pipelinev2""
+     
+    seed:
+      versionName: "deploy.2" 
+      branch: master
+   
+  - name: emailtest
+    type: notification
+    pointer:
+      method: email
+      recipients:
+        - "shiptestlink@gmail.com"
+        
+    flags: emailtest
+    
+  - name: notify-slack
+    type: notification
+    integration: "ship-slack"
+    pointer:
+      recipients:
+        - "#rc-public" 
+        - "#rc-private"
+       # - "@shiptest-rc-ow"
+    flags: slacktest
+    
+  
+  - name: kube-dockeropts
+    type: dockerOptions
+    version:
+      memory: 64
+      labels:
+        myKey1: myValue
+        myOtherKey1: myOtherValue
+        mykey2: myvalue3
+        
+  - name: test-trigger
+    type: time
+    seed:
+      interval: "1 */6 * * *" #every 8th hour 1st minute it will post a version
+ 
+  - name: test_params
+    type: params
+    version:
+      params:
+        TEST: rc
+        
+  - name: allpl-lb
+    type: loadBalancer
+    pointer:
+      sourceName: v2betatest
+      
+  - name: allpl-scale2
+    type: replicas
+    version:
+      count: 2
+      
+  - name: allpl-version
+    type: version
+    seed:
+      versionName: "1.2.123-beta"
+      
+  
+    
+  - name: slackIN
+    type: integration
+    integration: ship-slack 
+    flags: intinslack
+    
+  - name: cliconfig
+    type: cliConfig
+    integration: ship-docker
+    #pointer:        <object>
+
+  - name: filejfrog
+    type: file
+    integration: ship-jfrog 
+    pointer: 
+      sourceName: test-jfrog-ship/testoct.sh
+    seed:
+      versionName: none
+      
+  - name: trigger
+    type: trigger
+    version:
+      counter: 1
