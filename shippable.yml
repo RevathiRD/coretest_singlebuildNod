@@ -197,7 +197,7 @@ jobs:
      - OUT: gitRepo-resource-out
      - IN: trigger01
      - OUT: img-resource-out
-     - OUT: sample-runsh-testci
+     #- OUT: sample-runsh-testci
      
         
   - name: sample-runsh-testci
