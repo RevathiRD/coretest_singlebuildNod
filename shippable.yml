@@ -184,13 +184,13 @@ jobs:
         - script: 'cd /build/IN/gitRepo-resource/gitRepo'
         - script: 'docker pull gcr.io/vidya-project/node1-img:master.33'
         
-  - name: langtest_u16javall_runCI      # required
-    type: runCI             # required
-    steps:                  # required
-     - IN: gitRepo-resource
-     - IN: trigger01
-     - IN: img-resource
-     - IN: sample-runsh-testci
+  #- name: langtest_u16javall_runCI      # required
+   # type: runCI             # required
+   # steps:                  # required
+    # - IN: gitRepo-resource
+    # - IN: trigger01
+    # - IN: img-resource
+    # - IN: sample-runsh-testci
   - name: coretest_singlebuildNod_runCI      # required
     type: runCI             # required
     steps:                  # required
