@@ -129,39 +129,39 @@ jobs:
      on_cancel:                              
        - NOTIFY: ship-slack     
 
-  - name: sample-runsh-testci-C
-    type: runSh
-    allowPublicAccess: true
-    steps:
-      - IN: sample-runsh-testci-A
-      - IN: sample-runsh-testci-B
-        showBuildStatus: true
+   - name: sample-runsh-testci-C
+     type: runSh
+     allowPublicAccess: true
+     steps:
+       - IN: sample-runsh-testci-A
+       - IN: sample-runsh-testci-B
+         showBuildStatus: true
 
-      - TASK:
-        - script: echo $JOB_NAME
-        - script: echo $JOB_TYPE
-        - script: echo $BUILD_ID
-        - script: echo $BUILD_NUMBER
-        - script: echo $BUILD_JOB_ID
-        - script: echo $BUILD_JOB_NUMBER
-        - script: echo $SUBSCRIPTION_ID
-        - script: echo $JOB_PATH
-        - script: echo $JOB_STATE
-        - script: echo $JOB_PREVIOUS_STATE   
+       - TASK:
+         - script: echo $JOB_NAME
+        #- script: echo $JOB_TYPE
+       # - script: echo $BUILD_ID
+        #- script: echo $BUILD_NUMBER
+        #- script: echo $BUILD_JOB_ID
+        #- script: echo $BUILD_JOB_NUMBER
+        #- script: echo $SUBSCRIPTION_ID
+        #- script: echo $JOB_PATH
+        #- script: echo $JOB_STATE
+       # - script: echo $JOB_PREVIOUS_STATE   
         
-  - name: sample-runsh-testci-A
-    type: runSh
-    allowPublicAccess: true
-    steps:
-      - IN: gitRepo-resource
-      - TASK:
+   - name: sample-runsh-testci-A
+     type: runSh
+     allowPublicAccess: true
+     steps:
+       - IN: gitRepo-resource
+       - TASK:
           - script: IN/gitRepo-resource/gitRepo/echo.sh  
       
-  - name: sample-runsh-testci-B
-    type: runSh
-    allowPublicAccess: true
-    steps:
-      - IN: gitRepo-resource     
-      - TASK:
+   - name: sample-runsh-testci-B
+     type: runSh
+     allowPublicAccess: true
+     steps:
+       - IN: gitRepo-resource     
+       - TASK:
           - script: IN/gitRepo-resource/gitRepo/echo.sh   
         
