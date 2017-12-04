@@ -92,6 +92,7 @@ resources:
     pointer:
       sourceName: RevathiRD/sample-script-3
       branch: master
+    flags: test
 jobs:
    - name: sn-provision
      type: provision
@@ -155,7 +156,7 @@ jobs:
      steps:
        - IN: gitRepo-resource
        - TASK:
-          - script: IN/gitRepo-resource/gitRepo/echo.sh  
+          - script: IN/gitRepo-resource/gitRepo/echo.sh
       
    - name: sample-runsh-testci-B
      type: runSh
