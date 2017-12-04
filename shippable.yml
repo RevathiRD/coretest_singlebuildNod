@@ -204,7 +204,8 @@ jobs:
     type: runSh
     allowPublicAccess: true
     steps:
-      - IN: gitRepo-resource
+      - IN: sample-runsh-testci-A
+      - IN: sample-runsh-testci-B
         showBuildStatus: true
 
       - TASK:
@@ -218,6 +219,20 @@ jobs:
         - script: echo $JOB_PATH
         - script: echo $JOB_STATE
         - script: echo $JOB_PREVIOUS_STATE   
+        
+  - name: sample-runsh-testci-A
+    type: runSh
+    allowPublicAccess: true
+    steps:
+      - IN: gitRepo-resource
+      - TASK:
+          - script: IN/gitRepo-resource/gitRepo/echo.sh  
+      
+  - name: sample-runsh-testci-B
+    type: runSh
+    allowPublicAccess: true
+    steps:
+      - IN: gitRepo-resource
         
 triggers:
  
