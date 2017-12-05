@@ -135,7 +135,9 @@ jobs:
      allowPublicAccess: true
      steps:
        - IN: sample-runsh-testci-A
+         dependencyMode: strict
        - IN: sample-runsh-testci-B
+         dependencyMode: strict
          showBuildStatus: true
 
        - TASK:
