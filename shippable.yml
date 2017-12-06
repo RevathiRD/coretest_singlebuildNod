@@ -138,6 +138,8 @@ jobs:
          dependencyMode: immediate
        - IN: sample-runsh-testci-B
          dependencyMode: immediate
+       - IN: job1
+         dependencyMode: immediate
          showBuildStatus: true
 
        - TASK:
@@ -175,5 +177,11 @@ jobs:
        - IN: sample-runsh-testci-C   
       # - TASK:
          # - script: IN/gitRepo-resource/gitRepo/echo.sh   
+         
+   - name: job1
+     type: runSh
+     allowPublicAccess: true
+     steps:
+       - IN: gitRepo-resource  
         
         
