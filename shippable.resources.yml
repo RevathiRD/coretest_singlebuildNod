@@ -9,7 +9,7 @@ resources:
     integration: github
     pointer:
       sourceName: RevathiRD/sample-script-3
-      branch: 
+      branches:
         only:
          - master
       buildOnPullRequest: true  
