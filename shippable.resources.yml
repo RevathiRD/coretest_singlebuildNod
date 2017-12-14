@@ -12,6 +12,9 @@ resources:
       branches:
         except:
          - newbranch
+      tags:
+        except:
+          - tag14.6
       buildOnPullRequest: true  
       buildOnRelease: true                  
       buildOnTagPush: true
