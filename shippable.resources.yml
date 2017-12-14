@@ -11,7 +11,7 @@ resources:
       sourceName: RevathiRD/sample-script-3
       buildOnPullRequest: true 
       branches:
-        except:
+        only:
          - master
       #tags:
         #only:
