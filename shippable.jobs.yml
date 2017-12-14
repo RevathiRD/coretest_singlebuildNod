@@ -12,7 +12,7 @@ jobs:
   - name: langtest_u14javall_runCI      # required
     type: runCI             # required
     steps:                  # required
-     - IN: gitRepo-resource-ci
+     #- IN: gitRepo-resource-ci
      - OUT: test_params
      - OUT: kube-dockeropts
      - OUT: test-image
