@@ -10,20 +10,16 @@ resources:
     pointer:
       sourceName: RevathiRD/sample-script-3
       branches:
-        except:
-         - newbranch
+        only:
+         - master
       tags:
-        except:
-          - tag14.6
+        only:
+         - tag14.8
       buildOnPullRequest: true  
       buildOnRelease: true                  
       buildOnTagPush: true
- # - name: pipeline-test_master
-  #  type: syncRepo
-  #  flags:
-    #  - testsyncrepo
-    #  - testingsecondflags
-     #- testing third flag
+
+
       
   - name: script3
     type: gitRepo
