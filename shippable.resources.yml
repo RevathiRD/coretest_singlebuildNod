@@ -10,8 +10,8 @@ resources:
     pointer:
       sourceName: RevathiRD/sample-script-3
       branches:
-        only:
-         - master
+        except:
+         - newBranch
       buildOnPullRequest: true  
       buildOnRelease: true                  
       buildOnTagPush: true
