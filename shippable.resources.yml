@@ -11,7 +11,7 @@ resources:
       sourceName: RevathiRD/sample-script-3
       branches:
         except:
-         - newBranch
+         - newbranch
       buildOnPullRequest: true  
       buildOnRelease: true                  
       buildOnTagPush: true
