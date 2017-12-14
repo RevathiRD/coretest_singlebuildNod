@@ -13,8 +13,8 @@ resources:
         only:
          - master
       tags:
-        only:
-         - tag14.8
+        except:
+         - tag14.10
       buildOnPullRequest: true  
       buildOnRelease: true                  
       buildOnTagPush: true
