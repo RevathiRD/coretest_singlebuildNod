@@ -13,7 +13,7 @@ resources:
         only:
          - master
       buildOnPullRequest: true  
-      buildOnRelease: true                  #optional
+      buildOnRelease: true                  
       buildOnTagPush: true
  # - name: pipeline-test_master
   #  type: syncRepo
