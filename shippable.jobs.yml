@@ -34,8 +34,4 @@ jobs:
      - OUT: cliconfig
      - OUT: filejfrog
      - OUT: state
-  - name: langtest_u16javall_runCI      # required
-    type: runCI             # required
-    steps:                  # required
-     - IN: state
-     
+ 
